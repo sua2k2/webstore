@@ -95,6 +95,7 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\sua2k\OneDrive\바탕 화면\webstore-jb-main"/>
 			<item value="C:\java_review\Workspace-spring\webstore1"/>
 		</list>
 		<list key="projectNameTemplate">

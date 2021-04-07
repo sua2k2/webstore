@@ -1,5 +1,4 @@
 #Tomcat publish data
-#Wed Apr 07 13:13:41 KST 2021
-org.eclipse.jst.jee.server\:webstore=C\:\\web\\JAVA\\apache-tomcat-9.0.41\\wtpwebapps\\webstore
-org.eclipse.jst.jee.server\:webstore-jb=C\:\\web\\JAVA\\apache-tomcat-9.0.41\\wtpwebapps\\webstore-jb
-org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\sua2k\\.m2\\repository\\org\\springframework\\spring-web\\4.3.0.RELEASE\\spring-web-4.3.0.RELEASE.jar=C\:\\web\\JAVA\\apache-tomcat-9.0.41\\wtpwebapps\\webstore-jb\\WEB-INF\\lib\\spring-web-4.3.0.RELEASE.jar
+#Wed Apr 07 13:55:49 KST 2021
+org.eclipse.jst.jee.server\:webstore-jb-main=C\:\\web\\JAVA\\apache-tomcat-9.0.41\\wtpwebapps\\webstore-jb-main
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\sua2k\\.m2\\repository\\org\\springframework\\spring-web\\4.3.0.RELEASE\\spring-web-4.3.0.RELEASE.jar=C\:\\web\\JAVA\\apache-tomcat-9.0.41\\wtpwebapps\\webstore-jb-main\\WEB-INF\\lib\\spring-web-4.3.0.RELEASE.jar
