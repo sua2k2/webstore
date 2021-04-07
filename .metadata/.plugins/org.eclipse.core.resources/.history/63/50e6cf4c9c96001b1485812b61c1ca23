@@ -1,0 +1,26 @@
+package com.sua.webstore.domain.repository.impl;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+
+import com.sua.webstore.domain.Customer;
+import com.sua.webstore.domain.repository.CustomerRepository;
+
+public class InMemoryCustomerRepository implements CustomerRepository {
+
+	@Autowired
+	private NamedParameterJdbcTemplate jdbcTemplate;
+
+	@Override
+	public List<Customer> getAllCustomers() {
+		Map<String, Object> params = new HashMap<String, Object>();
+		List<Customer> result = jdbcTemplate.query("SELECT * FROM customers", params, new CustomerMapper());
+		return result;
+
+	}
+
+}

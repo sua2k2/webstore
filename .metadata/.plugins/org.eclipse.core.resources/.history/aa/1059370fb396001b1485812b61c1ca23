@@ -1,0 +1,10 @@
+package com.sua.webstore.service;
+
+import java.util.List;
+
+import com.sua.webstore.domain.Product;
+
+public interface ProductService {
+	void updateAllStock();
+	List<Product> getAllProducts();
+}

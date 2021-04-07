@@ -1,0 +1,5 @@
+package com.sua.webstore.domain.repository.impl;
+
+public interface InMemoryProductRepository {
+
+}

@@ -1,0 +1,16 @@
+package com.sua.webstore.domain.repository.impl;
+
+import java.util.List;
+
+import com.sua.webstore.domain.Customer;
+import com.sua.webstore.domain.repository.CustomerRepository;
+
+public class InMemoryCustomerRepository implements CustomerRepository {
+
+	@Override
+	public List<Customer> getAllCustomers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

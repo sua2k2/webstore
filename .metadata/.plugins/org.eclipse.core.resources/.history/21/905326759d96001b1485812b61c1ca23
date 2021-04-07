@@ -1,0 +1,5 @@
+package com.sua.webstore.service;
+
+public interface CustomerService {
+	List<Customer> getAllCustomers();
+}

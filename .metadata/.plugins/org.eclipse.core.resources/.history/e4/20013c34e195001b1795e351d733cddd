@@ -1,0 +1,5 @@
+package com.sua.webstore.domain;
+
+public class Product {
+
+}

@@ -1,0 +1,5 @@
+package com.sua.webstore.domain.repository;
+
+public interface CustomerRepository {
+	List<Customer> getAllCustomers();
+}
