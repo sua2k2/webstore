@@ -15,7 +15,7 @@ import com.jbpark.webstore.domain.Product;
 import com.jbpark.webstore.domain.repository.ProductRepository;
 
 @Repository
-public class InMemoryProductRepository implements ProductRepository {
+public class MariaProductRepository implements ProductRepository {
 
 	@Autowired
 	private NamedParameterJdbcTemplate jdbcTemplate;
@@ -88,6 +88,25 @@ public class InMemoryProductRepository implements ProductRepository {
 		criteria.put("category", productCategory); // **
 		criteria.put("brand", brand);
 		return jdbcTemplate.query(SQL, criteria, new ProductMapper());
+	}
+
+	@Override
+	public void addProduct(Product product) {
+		String SQL = "INSERT INTO PRODUCTS (ID, " + "PROD_NAME," + "DESCRIPTION," + "UNIT_PRICE," + "MANUFACTURER,"
+				+ "CATEGORY," + "PROD_CONDITION," + "UNITS_IN_STOCK," + "UNITS_IN_ORDER," + "DISCONTINUED) "
+				+ "VALUES (:id, :name, :desc, :price, :manufacturer, :category, :condition, :inStock, :inOrder, :discontinued)";
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("id", product.getProductId());
+		params.put("name", product.getName());
+		params.put("desc", product.getDescription());
+		params.put("price", product.getUnitPrice());
+		params.put("manufacturer", product.getManufacturer());
+		params.put("category", product.getCategory());
+		params.put("condition", product.getCondition());
+		params.put("inStock", product.getUnitsInStock());
+		params.put("inOrder", product.getUnitsInOrder());
+		params.put("discontinued", product.isDiscontinued());
+		jdbcTemplate.update(SQL, params);
 	}
 
 }

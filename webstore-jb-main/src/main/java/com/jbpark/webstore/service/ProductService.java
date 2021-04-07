@@ -20,4 +20,5 @@ public interface ProductService {
 
 	List<Product> getProdsByMultiFilter(String productCategory, Map<String, String> price, String brand);
 
+	void addProduct(Product product);
 }

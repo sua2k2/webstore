@@ -4,3 +4,5 @@ INSERT INTO PRODUCTS VALUES ('P1236',
 quad-core Qualcomm Snapdragon?S4 Pro
 processor',
 300,'Google','Tablet','New',1000,0,false);
+
+select * from products;
