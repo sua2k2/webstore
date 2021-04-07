@@ -24,18 +24,17 @@ public class ProductServiceImpl implements ProductService {
 			}
 		}
 	}
-	
+
 	@Override
-	public List<Product> getProductsByFilter(
-			Map<String, List<String>> filterParams) {
-			return productRepository.getProductsByFilter(filterParams);
-			}	
+	public List<Product> getProductsByFilter(Map<String, List<String>> filterParams) {
+		return productRepository.getProductsByFilter(filterParams);
+	}
 
 	@Override
 	public List<Product> getAllProducts() {
 		return productRepository.getAllProducts();
 	}
-	
+
 	@Override
 	public List<Product> getAllProducts(String arg) {
 		return productRepository.getAllProducts(arg);
@@ -49,6 +48,11 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public Product getProductById(String productID) {
 		return productRepository.getProductById(productID);
+	}
+
+	@Override
+	public List<Product> getProdsByMultiFilter(String productCategory, Map<String, String> price, String brand) {
+		return productRepository.getProdsByMultiFilter(productCategory, price, brand);
 	}
 
 }
