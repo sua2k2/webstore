@@ -60,16 +60,20 @@ public class ProductController {
 		productService.updateAllStock();
 		return "redirect:/market/products";
 	}
-	
+
+	/*
+	 * 아래 메소드와 동일한 기능
+	 * @RequestMapping(value = "/products/add", method = RequestMethod.GET) public
+	 * String getAddNewProductForm(Model model) { Product newProduct = new
+	 * Product(); model.addAttribute("newProd", newProduct); return "addProduct"; }
+	 */
 	@RequestMapping(value = "/products/add", method = RequestMethod.GET)
-	public String getAddNewProductForm(Model model) {
-		Product newProduct = new Product();
-		model.addAttribute("newProduct", newProduct);
+	public String getAddNewProductForm(@ModelAttribute("newProd") Product newProduct) {
 		return "addProduct";
 	}
-	
+
 	@RequestMapping(value = "/products/add", method = RequestMethod.POST)
-	public String processAddNewProductForm(@ModelAttribute("newProduct") Product newProduct, BindingResult result) {
+	public String processAddNewProductForm(@ModelAttribute("newProd") Product newProduct, BindingResult result) {
 		String[] suppressedFields = result.getSuppressedFields();
 		if (suppressedFields.length > 0) {
 			throw new RuntimeException("Attempting to bind disallowed fields: "

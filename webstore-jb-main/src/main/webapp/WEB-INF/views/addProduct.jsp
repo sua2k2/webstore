@@ -21,7 +21,7 @@
 		</div>
 	</section>
 	<section class="container">
-		<form:form method="POST" modelAttribute="newProduct"
+		<form:form method="POST" modelAttribute="newProd"
 			class="form-horizontal">
 			<fieldset>
 				<legend>신상품 정보 입력</legend>
