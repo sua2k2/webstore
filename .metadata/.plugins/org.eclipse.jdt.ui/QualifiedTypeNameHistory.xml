@@ -24,4 +24,9 @@
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="org.springframework.web.servlet.config.annotation.PathMatchConfigurer"/>
     <fullyQualifiedTypeName name="java.lang.Override"/>
+    <fullyQualifiedTypeName name="java.nio.file.DirectoryStream.Filter"/>
+    <fullyQualifiedTypeName name="javax.imageio.spi.ServiceRegistry.Filter"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.ComponentScan.Filter"/>
+    <fullyQualifiedTypeName name="javax.servlet.Filter"/>
+    <fullyQualifiedTypeName name="org.springframework.web.filter.CharacterEncodingFilter"/>
 </qualifiedTypeNameHistroy>

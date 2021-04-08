@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -63,6 +64,7 @@ public class ProductController {
 
 	/*
 	 * 아래 메소드와 동일한 기능
+	 * 
 	 * @RequestMapping(value = "/products/add", method = RequestMethod.GET) public
 	 * String getAddNewProductForm(Model model) { Product newProduct = new
 	 * Product(); model.addAttribute("newProd", newProduct); return "addProduct"; }
@@ -73,13 +75,21 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/products/add", method = RequestMethod.POST)
-	public String processAddNewProductForm(@ModelAttribute("newProd") Product newProduct, BindingResult result) {
+	public String processAddNewProductForm(@ModelAttribute("newProd") Product newProduct, BindingResult result,
+			Model model) {
 		String[] suppressedFields = result.getSuppressedFields();
 		if (suppressedFields.length > 0) {
 			throw new RuntimeException("Attempting to bind disallowed fields: "
 					+ StringUtils.arrayToCommaDelimitedString(suppressedFields));
 		}
-		productService.addProduct(newProduct);
-		return "redirect:/market/products";
+		try {
+			productService.addProduct(newProduct);
+			return "redirect:/market/products";
+		} catch (DataAccessException e) {
+			String msg = e.getMessage();
+			int idx = msg.lastIndexOf("Duplicate");
+			model.addAttribute("errormessage", msg.substring(idx));
+			return "addProduct";
+		}
 	}
 }

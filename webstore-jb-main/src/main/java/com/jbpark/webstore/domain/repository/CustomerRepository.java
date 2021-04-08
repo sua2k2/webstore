@@ -6,4 +6,6 @@ import com.jbpark.webstore.domain.Customer;
 
 public interface CustomerRepository {
 	List<Customer> getAllCustomers();
+	void addCustomer(Customer customer);
+
 }

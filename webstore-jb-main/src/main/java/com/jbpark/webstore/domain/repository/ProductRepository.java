@@ -3,6 +3,8 @@ package com.jbpark.webstore.domain.repository;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.dao.DataAccessException;
+
 import com.jbpark.webstore.domain.Product;
 
 public interface ProductRepository {
@@ -18,6 +20,6 @@ public interface ProductRepository {
 
 	List<Product> getProdsByMultiFilter(String productCategory, Map<String, String> price, String brand);
 
-	void addProduct(Product product);
+	void addProduct(Product product) throws DataAccessException;
 
 }
