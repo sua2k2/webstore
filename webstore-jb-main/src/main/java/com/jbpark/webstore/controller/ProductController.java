@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.MatrixVariable;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -77,13 +79,14 @@ public class ProductController {
 	@RequestMapping(value = "/products/add", method = RequestMethod.POST)
 	public String processAddNewProductForm(@ModelAttribute("newProd") Product newProduct, BindingResult result,
 			Model model) {
-		String[] suppressedFields = result.getSuppressedFields();
-		if (suppressedFields.length > 0) {
-			throw new RuntimeException("Attempting to bind disallowed fields: "
-					+ StringUtils.arrayToCommaDelimitedString(suppressedFields));
-		}
 		try {
-			productService.addProduct(newProduct);
+			String[] suppressedFields = result.getSuppressedFields();
+			if (suppressedFields.length > 0) {
+				throw new RuntimeException("Attempting to bind disallowed fields: "
+						+ StringUtils.arrayToCommaDelimitedString(suppressedFields));
+			} else {
+				productService.addProduct(newProduct);
+			}
 			return "redirect:/market/products";
 		} catch (DataAccessException e) {
 			String msg = e.getMessage();
@@ -91,5 +94,11 @@ public class ProductController {
 			model.addAttribute("errormessage", msg.substring(idx));
 			return "addProduct";
 		}
+	}
+
+	@InitBinder
+	public void initialiseBinder(WebDataBinder binder) {
+		binder.setAllowedFields("productId", "name", "unit*", "description", "manufacturer", "category",
+				 "condition");
 	}
 }

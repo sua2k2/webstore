@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.jbpark.webstore.domain.Customer;
 import com.jbpark.webstore.service.CustomerService;
 
-@RequestMapping("/market/*")
+@RequestMapping("/market")
 @Controller
 public class CustomerController {
 	@Autowired
