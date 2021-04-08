@@ -13,4 +13,9 @@
 			<item value="org.eclipse.m2e"/>
 		</list>
 	</section>
+	<section name="EditorSelectionDialog">
+		<item key="EditorSelectionDialog.STORE_ID_FILE_EXTENSION" value=".properties"/>
+		<item key="EditorSelectionDialog.STORE_ID_INTERNAL_EXTERNAL" value="false"/>
+		<item key="EditorSelectionDialog.STORE_ID_DESCR" value="org.eclipse.jdt.ui.PropertiesFileEditor"/>
+	</section>
 </section>

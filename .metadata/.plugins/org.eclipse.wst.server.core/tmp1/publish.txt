@@ -1,4 +1,4 @@
 #Tomcat publish data
-#Thu Apr 08 15:56:07 KST 2021
+#Thu Apr 08 18:24:03 KST 2021
 org.eclipse.jst.jee.server\:webstore-jb-main=C\:\\web\\JAVA\\apache-tomcat-9.0.41\\wtpwebapps\\webstore-jb-main
 org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\sua2k\\.m2\\repository\\org\\springframework\\spring-web\\4.3.0.RELEASE\\spring-web-4.3.0.RELEASE.jar=C\:\\web\\JAVA\\apache-tomcat-9.0.41\\wtpwebapps\\webstore-jb-main\\WEB-INF\\lib\\spring-web-4.3.0.RELEASE.jar

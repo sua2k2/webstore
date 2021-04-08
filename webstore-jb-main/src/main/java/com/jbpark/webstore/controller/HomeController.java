@@ -12,11 +12,12 @@ public class HomeController {
 	public String welcome(Model model, RedirectAttributes redAttrs) {
 		String greeting = "환영합니다!";
 		String tagline = "세상에서 하나 뿐인 웹 가게";
-//		model.addAttribute("greeting", greeting);
-//		model.addAttribute("tagline", tagline);
-		redAttrs.addFlashAttribute("greeting", greeting);
-		redAttrs.addFlashAttribute("tagline", tagline);
-		return "redirect:/welcome/greeting";
+		model.addAttribute("greeting", greeting);
+		model.addAttribute("tagline", tagline);
+//		redAttrs.addFlashAttribute("greeting", greeting);
+//		redAttrs.addFlashAttribute("tagline", tagline);
+		//return "redirect:/welcome/greeting";
+		return "welcome";
 	}
 	
 	@RequestMapping("/welcome/greeting")

@@ -22,7 +22,7 @@
 	</section>
 	<section class="container">
 		<form:form method="POST" modelAttribute="newProd"
-			class="form-horizontal">
+			class="form-horizontal" enctype="multipart/form-data">
 			<fieldset>
 				<legend>신상품 정보 입력</legend>
 				<span>${errermessage}</span>
@@ -88,8 +88,8 @@
 						<form:input id="unitsInOrder" path="unitsInOrder" type="text"
 							class="form:input-large" />
 					</div>
-				 -->
-				</div>
+				 
+				</div>-->
 				<div class="form-group">
 					<label class="control-label col-lg-2" for="description"> <spring:message
 							code="addProduct.form.description.label" />
@@ -119,6 +119,26 @@
 						<spring:message code="addProduct.form.refurbished.radiobutton" />
 					</div>
 				</div>
+				<div class="form-group">
+					<label class="control-label col-lg-2" for="productImage"> <spring:message
+							code="addProduct.form.productImage.label" />
+					</label>
+					<div class="col-lg-10">
+						<form:input id="productImage" path="productImage" type="file"
+							class="form:input-large" />
+					</div>
+				</div>
+				<!-- 상품 안내서 입력 -->
+				<div class="form-group">
+					<label class="control-label col-lg-2" for="productManual">
+						<spring:message code="addProduct.form.productManual.label" />
+					</label>
+					<div class="col-lg-10">
+						<form:input id="productManual" path="productManual" type="file"
+							class="form:input-large" />
+					</div>
+				</div>
+
 				<div class="form-group">
 					<div class="col-lg-offset-2 col-lg-10">
 						<input type="submit" id="btnAdd" class="btn btn-primary"
