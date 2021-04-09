@@ -4,6 +4,10 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.jbpark.webstore.util.ValueFormat;
@@ -14,6 +18,7 @@ import com.jbpark.webstore.util.ValueFormat;
  * @author Jongbum Park
  *
  */
+@XmlRootElement
 public class Product implements Serializable {
 	/**
 	 * 
@@ -32,9 +37,12 @@ public class Product implements Serializable {
 	private long unitsInOrder;
 	private boolean discontinued;
 	private String condition;
+	@JsonIgnore
 	private MultipartFile productImage;
+	@JsonIgnore
 	private MultipartFile productManual;
 	
+	@XmlTransient
 	public MultipartFile getProductManual() {
 		return productManual;
 	}
@@ -42,7 +50,8 @@ public class Product implements Serializable {
 	public void setProductManual(MultipartFile productManual) {
 		this.productManual = productManual;
 	}
-
+	
+	@XmlTransient
 	public MultipartFile getProductImage() {
 		return productImage;
 	}
@@ -178,4 +187,5 @@ public class Product implements Serializable {
 		result = prime * result + ((productId == null) ? 0 : productId.hashCode());
 		return result;
 	}
+	
 }

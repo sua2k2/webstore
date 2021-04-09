@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 
 import com.jbpark.webstore.domain.Product;
 import com.jbpark.webstore.domain.repository.ProductRepository;
+import com.jbpark.webstore.exception.ProductNotFoundException;
 
 @Repository
 public class MariaProductRepository implements ProductRepository {
@@ -79,7 +80,11 @@ public class MariaProductRepository implements ProductRepository {
 		String SQL = "SELECT * FROM PRODUCTS WHERE ID = :id";
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("id", productID);
-		return jdbcTemplate.queryForObject(SQL, params, new ProductMapper());
+		try {
+			return jdbcTemplate.queryForObject(SQL, params, new ProductMapper());
+		} catch (DataAccessException e) {
+			throw new ProductNotFoundException(productID);
+		}
 	}
 
 	@Override
@@ -92,7 +97,7 @@ public class MariaProductRepository implements ProductRepository {
 	}
 
 	@Override
-	public void addProduct(Product product) throws DataAccessException{
+	public void addProduct(Product product) throws DataAccessException {
 		String SQL = "INSERT INTO PRODUCTS (ID, " + "PROD_NAME," + "DESCRIPTION," + "UNIT_PRICE," + "MANUFACTURER,"
 				+ "CATEGORY," + "PROD_CONDITION," + "UNITS_IN_STOCK," + "UNITS_IN_ORDER," + "DISCONTINUED) "
 				+ "VALUES (:id, :name, :desc, :price, :manufacturer, :category, :condition, :inStock, :inOrder, :discontinued)";
